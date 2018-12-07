@@ -1,18 +1,22 @@
 <resources>
-    <string name="app_name">Agenda</string>
-    <string name="search_hint">Buscar contato</string>
-    <string name="title_activity_detalhe">Novo contato</string>
-    <string name="nome_do_contato">Nome do contato</string>
-    <string name="salvar">Salvar</string>
-    <string name="excluir">Excluir</string>
-    <string name="nome">Nome</string>
-    <string name="fone">Fone</string>
+    <string name="app_name">Schedule SQLite</string>
+    <string name="search_hint">Search Contact</string>
+    <string name="title_activity_detalhe">New Contact</string>
+    <string name="nome_do_contato">Contact Name</string>
+    <string name="salvar">Save</string>
+    <string name="excluir">Delete</string>
+    <string name="nome">Name</string>
+    <string name="fone">Phone</string>
     <string name="email">Email</string>
-    <string name="lista_vazia">Lista de contatos vazia</string>
-    <string name="contato_nao_encontrado">Contato não encontrado</string>
-    <string name="contato_adicionado">Contato adicionado</string>
-    <string name="contato_alterado">Informações do contato alteradas</string>
-    <string name="contato_apagado">Contato removido</string>
+    <string name="lista_vazia">Empty Contact List</string>
+    <string name="contato_nao_encontrado">Contact not found</string>
+    <string name="contato_adicionado">Added contact</string>
+    <string name="contato_alterado">Contact information changed</string>
+    <string name="contato_apagado">Contact removed</string>
+    <string name="favorites">Favorites</string>
+    <string name="anniversary">Birthday</string>
+    <string name="day_month">Day/Month</string>
+
 </resources>
 
 

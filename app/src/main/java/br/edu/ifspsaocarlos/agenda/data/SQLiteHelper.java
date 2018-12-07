@@ -1,4 +1,5 @@
 package br.edu.ifspsaocarlos.agenda.data;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -10,11 +11,15 @@ class SQLiteHelper extends SQLiteOpenHelper {
     static final String KEY_NAME = "nome";
     static final String KEY_FONE = "fone";
     static final String KEY_EMAIL = "email";
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_CREATE = "CREATE TABLE "+ DATABASE_TABLE +" (" +
-            KEY_ID  +  " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+    static final String KEY_FAVORITE = "favorite";
+    static final String KEY_BIRTHDAY = "birthday";
+    private static final int DATABASE_VERSION = 3;
+    private static final String DATABASE_CREATE = "CREATE TABLE " + DATABASE_TABLE + " (" +
+            KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_NAME + " TEXT NOT NULL, " +
-            KEY_FONE + " TEXT, "  +
+            KEY_FONE + " TEXT, " +
+            KEY_FAVORITE + " INTEGER, " +
+            KEY_BIRTHDAY + " TEXT, " +
             KEY_EMAIL + " TEXT);";
 
     SQLiteHelper(Context context) {
@@ -27,7 +32,22 @@ class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, int oldVersion, int    newVersion) {
+    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+
+        if (oldVersion < 2) {
+            final String sql = "ALTER TABLE " + DATABASE_TABLE + " ADD COLUMN " + KEY_FAVORITE + " integer NOT NULL DEFAULT 0";
+            database.execSQL(sql);
+        }
+        if (oldVersion < 3) {
+            final String sql = "ALTER TABLE " + DATABASE_TABLE + " ADD COLUMN " + KEY_BIRTHDAY + " text";
+            database.execSQL(sql);
+        }
+
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        super.onDowngrade(db, oldVersion, newVersion);
     }
 }
 
